@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Liu Song’s Pages</title>
+  <title>MIoT Spec</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="homepage, blog, music and etc.">
@@ -27,7 +27,7 @@
     <header class="header">
       <a href="/" class="heading">
         <img src="https://lsong.org/icon.svg" alt="logo" class="logo" width="24">
-        <h1 prefix="Lsong’s " class="title">Pages</h1>
+        <h1 class="title">MIoT Spec</h1>
       </a>
       <nav class="nav nav-bar">
         <a href="//lsong.org">home</a>
@@ -55,7 +55,26 @@
         </p>
       </section>
 
-      <section id="app"></section>
+      <section id="app">
+
+        <form id="form1" action="https://miot-spec.org/miot-spec-v2/instances" method="get" class="input-group width-full" >
+          <select name="status" class="input">
+            <option value="all">All</option>
+            <option value="released">Released</option>
+            <option value="debug">Debug</option>
+          </select>
+          <input type="search" placeholder="xiaomi.wifispeaker.lx01" class="input" value="xiaomi.wifispeaker.lx01" />
+          <button type="submit" class="button">Search</button>
+        </form>
+
+        <form id="form2" action="https://miot-spec.org/miot-spec-v2/instance" class="input-group width-full">
+          <input type="search" name="type" class="input" placeholder="urn:miot-spec-v2:device:speaker:0000A015:xiaomi-lx01:1">
+          <button type="submit" class="button">Search</button>
+        </form>
+
+        <ul id="result"></ul>
+
+      </section>
 
       <hr />
       <section id="subscribe" class="subscribe">

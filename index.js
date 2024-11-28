@@ -1,20 +1,25 @@
 import { ready } from 'https://lsong.org/scripts/dom.js';
-import { h, render, useState, useEffect } from 'https://lsong.org/scripts/react/index.js';
-
-const App = () => {
-  const [] = useState();
-  useEffect(() => {
-    console.log('App is ready');
-  }, []);
-  return [
-    h('h2', null, "App"),
-    h('ul', null, [
-      h('li', null, "Demo")
-    ])
-  ]
-}
+import {  } from 'https://lsong.org/scripts/form.js';
+import { createTable, createTableHead } from './table.js';
 
 ready(() => {
-  const app = document.getElementById('app');
-  render(h(App), app);
+  const form1 = document.getElementById("form1");
+  const form2 = document.getElementById("form2");
+  const result = document.getElementById('result');
+
+  form1.addEventListener("submit", async e => {
+    e.preventDefault();
+    const form = e.target;
+    const status = form.querySelector('select');
+    const model = form.querySelector('input');
+    const res = await fetch(form.action + `?${status.name}=${status.value}`);
+    const data = await res.json();
+    const instances = data.instances.filter(instance => model.value == instance.model);
+    result.innerHTML = '';
+    instances.forEach(instance => {
+      const li = document.createElement('li');
+      li.textContent = instance.type;
+      result.appendChild(li);
+    });
+  });
 });
