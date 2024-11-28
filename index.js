@@ -1,6 +1,4 @@
 import { ready } from 'https://lsong.org/scripts/dom.js';
-import {  } from 'https://lsong.org/scripts/form.js';
-import { createTable, createTableHead } from './table.js';
 
 ready(() => {
   const form1 = document.getElementById("form1");
